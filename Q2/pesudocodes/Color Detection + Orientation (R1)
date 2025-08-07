@@ -1,0 +1,12 @@
+function detect_tile_color():
+    rgb = read_from_TCS34725()
+    tile_color = classify_color(rgb)
+    return tile_color
+
+function handle_orientation(tile_color):
+    goal_heading = color_to_goalpost_heading[tile_color]
+    start_timer()
+    while abs(current_heading() - goal_heading) > tolerance:
+        rotate_to(goal_heading)
+        if timer_exceeds(3s):
+            trigger_penalty()
