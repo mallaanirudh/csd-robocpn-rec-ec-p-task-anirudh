@@ -1,0 +1,13 @@
+// Mapping color to goalpost heading
+color_to_goalpost_heading = {
+    "red": 0,
+    "blue": 90,
+    "green": 180,
+    "yellow": 270
+}
+
+// Valid pass lookup table (16x16)
+bool pass_valid[16][16] = { precomputed_map }
+
+// Precomputed paths (tile-to-tile)
+Path precomputed_paths[16][16] = { hardcoded sequences }
