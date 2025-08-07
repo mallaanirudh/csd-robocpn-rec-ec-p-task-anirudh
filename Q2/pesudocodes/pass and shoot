@@ -1,0 +1,12 @@
+function execute_pass(passer_pos, shooter_pos):
+    if pass_valid[passer_pos][shooter_pos]:
+        rotate_to(shooter_pos)
+        activate_servo_to_pass()
+    else:
+        fallback_pass()
+
+function execute_shoot(color):
+    target_tile = shooting_tile_for_color[color]
+    go_to(target_tile)
+    rotate_to(goalpost_heading[color])
+    activate_servo_to_shoot()
