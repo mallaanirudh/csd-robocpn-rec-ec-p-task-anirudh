@@ -1,0 +1,10 @@
+function pid_controller(current, target):
+    error = target - current
+    integral += error * dt
+    derivative = (error - previous_error) / dt
+    output = Kp * error + Ki * integral + Kd * derivative
+    previous_error = error
+    return output
+
+function set_motor_pwm(motor_id, pwm_value):
+    write_pwm_to_esc(motor_id, pwm_value)
