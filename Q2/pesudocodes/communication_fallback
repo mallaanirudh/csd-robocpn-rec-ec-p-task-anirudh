@@ -1,0 +1,8 @@
+function check_fallback_conditions():
+    if time_remaining < 8s or communication_lost or stuck:
+        trigger_fallback()
+
+function trigger_fallback():
+    nearest_valid_pair = find_valid_pass_pair(current_position)
+    execute_pass(passer_pos=current_position, shooter_pos=nearest_valid_pair)
+    execute_shoot(last_known_color)
