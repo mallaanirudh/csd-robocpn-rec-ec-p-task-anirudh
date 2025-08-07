@@ -1,0 +1,4 @@
+function rotate_to(angle):
+    while abs(current_yaw - angle) > threshold:
+        pid_output = pid_controller(current_yaw, angle)
+        adjust_motor_pwm_for_rotation(pid_output)
