@@ -1,0 +1,8 @@
+function begin_navigation(color):
+    target_tile = lookup_target_tile(color)
+    path = precomputed_paths[current_position][target_tile]
+    
+    if path is null or blocked:
+        path = A_star(current_position, target_tile, barriers)  // triggering the A* algo if precomputed path is not sucessfull.
+    
+    follow_path(path)
